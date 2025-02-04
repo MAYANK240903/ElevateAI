@@ -3,6 +3,7 @@
 
 import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
+import { generateAIInsight } from "./dashboard";
 
 
 
@@ -30,19 +31,14 @@ export async function updateUser(data) {
                 });
 
                 if(!industryInsight){
-                    industryInsight=await tx.industryInsight.create({
+                    const insights = await generateAIInsight(data.industry);
+                    industryInsight = await db.industryInsight.create({
                         data:{
-                            industry: data.industry,
-                            salaryRanges: [],
-                            demandLevel: "MEDIUM",
-                            topSkills: [],
-                            marketOutlook: "NEUTRAL",
-                            keyTrends: [],
-                            recommendedSkills:[],
-                            growthRate: 0,
-                            nextUpdate: new Date(Date.now()+7*24*60*60*1000),
+                            industry:data.industry,
+                            ...insights,
+                            nextUpdate: new Date (Date.now()+ 7*24*60*60*1000),
                         },
-                    });
+                    })
                 }
                 const updatedUser = await tx.user.update({
                     where:{
