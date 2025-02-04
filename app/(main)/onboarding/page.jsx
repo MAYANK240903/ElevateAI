@@ -6,7 +6,7 @@ import OnboardingForm from './_components/onboarding-form';
 
 const OnboardingPage = async() => {
 
-  const {isOnboarded}= getUserOnboardingStatus();
+  const {isOnboarded}= await getUserOnboardingStatus();
   if(isOnboarded){
     redirect("/dashboard");
   }

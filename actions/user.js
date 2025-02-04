@@ -7,6 +7,7 @@ import { auth } from "@clerk/nextjs/server";
 
 
 
+
 export async function updateUser(data) {
     const {userId} = await auth();
     if(!userId) throw new Error("Unauthorized");
@@ -33,12 +34,12 @@ export async function updateUser(data) {
                         data:{
                             industry: data.industry,
                             salaryRanges: [],
-                            growthRate: 0,
-                            demandLevel: "Medium",
+                            demandLevel: "MEDIUM",
                             topSkills: [],
-                            marketOutlook: "Neutral",
+                            marketOutlook: "NEUTRAL",
                             keyTrends: [],
                             recommendedSkills:[],
+                            growthRate: 0,
                             nextUpdate: new Date(Date.now()+7*24*60*60*1000),
                         },
                     });
@@ -61,10 +62,10 @@ export async function updateUser(data) {
             }
     );
 
-        return result.user;
+        return {success:true, ...result};
     } catch (error) {
         console.error("Error updating user and industry:", error.message);
-        throw new Error("Failed to upload profile");
+        throw new Error("Failed to upload profile"+ error.message);
     }
 }
 
@@ -88,12 +89,11 @@ export async function getUserOnboardingStatus() {
                 industry:true,
             }
         });
-
         return {
             isOnboarded: !!user?.industry,
         };
     } catch (error) {
         console.error("Error checking onboarding status:", error.message);
-        throw new Error("Failed to check onboarding status");
+        throw new Error("Failed to check onboarding status"+error.message);
     }
 }

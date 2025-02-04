@@ -4,7 +4,8 @@ import React from 'react'
 
 const IndustryInsightsPage =async() => {
 
-    const {isOnboarded}= getUserOnboardingStatus();
+    const {isOnboarded}= await getUserOnboardingStatus();
+    
     if(!isOnboarded){
         redirect("/onboarding");
     }
