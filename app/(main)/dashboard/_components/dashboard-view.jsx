@@ -49,7 +49,6 @@ const DashboardView = ({insights}) => {
     const lastUpdatedDate = format(new Date(insights.lastUpdated), "dd/MM/yyyy");
 
     const nextUpdatedDistance = formatDistanceToNow(new Date(insights.nextUpdate),{addSuffix:true});
-    console.log(insights.topSkills);
 
     return (
         <div className='space-y-6'>
