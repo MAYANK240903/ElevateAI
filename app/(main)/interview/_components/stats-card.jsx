@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 import { Brain, Trophy } from "lucide-react";
 
 
@@ -30,7 +31,7 @@ const StatsCard = ({assessments}) => {
             <CardContent>
                 <div className='text-2xl font-bold'>{averageScore()}%</div>
                 <Progress value={averageScore()} className="mt-2"/>
-                <p className='text-xs text-muted-foreground'>Across all Assessments</p>
+                <p className='text-xs text-muted-foreground mt-2'>Across all Assessments</p>
             </CardContent>
         </Card>
 
@@ -48,15 +49,13 @@ const StatsCard = ({assessments}) => {
         <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Latest Score</CardTitle>
-                {/* <BriefcaseIcon className={`h-4 w-4 text-muted-foreground`}/> */}
+                <Trophy className={`h-4 w-4 text-muted-foreground`}/>
             </CardHeader>
             <CardContent>
                 <div className='text-2xl font-bold'>
-                    {getAssessments().?quizScore}
+                    {getAssessments()?.quizScore.toFixed(1) || 0}%
                 </div>
-                <div className={`h-2 w-full rounded-full mt-2 ${getDemandLevelColor(
-                    insights.demandLevel
-                )}`}/>
+                <p className='text-xs text-muted-foreground'>Most Recent Quiz</p>
             </CardContent>
         </Card>
        
