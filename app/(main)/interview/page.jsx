@@ -1,10 +1,26 @@
 import React from 'react'
 import MockInterviePage from './mock/page'
+import { getAssessments } from '@/actions/interview'
+import StatsCard from './_components/stats-card';
+import PerformanceChart from './_components/performance-chart';
+import QuizList from './_components/quiz-list';
 
-const InterviePage = () => {
+const InterviePage = async() => {
+
+
+  const assessments = await getAssessments();
   return (
     <div>
-      Interview Page
+       <h1 className='text-6xl font-bold gradient-title mb=5'>
+        Interview Preperation
+       </h1>
+
+       <div>
+        <StatsCard assessments={assessments}/>
+        <PerformanceChart assessments={assessments} />
+        <QuizList assessments={assessments} />
+
+       </div>
     </div>
   )
 }
