@@ -1,8 +1,9 @@
-"use server";
+"use server"
 
 import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenerativeAI } from '@google/generative-ai';
+
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -46,6 +47,7 @@ export async function generateCoverLetter(data) {
   try {
     const result = await model.generateContent(prompt);
     const content = result.response.text().trim();
+    console.log(content);
 
     const coverLetter = await db.coverLetter.create({
       data: {
@@ -53,7 +55,6 @@ export async function generateCoverLetter(data) {
         jobDescription: data.jobDescription,
         companyName: data.companyName,
         jobTitle: data.jobTitle,
-        status: "completed",
         userId: user.id,
       },
     });
