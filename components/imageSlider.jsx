@@ -28,9 +28,9 @@ const ImageSlider = () => {
       <AnimatePresence mode="wait">
         <motion.div
           key={images[currentImageIndex]}
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 0.5 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          exit={{ opacity: 0.3 }}
           transition={{ duration: 1 }}
           className="inset-0 w-full h-full"
         >
