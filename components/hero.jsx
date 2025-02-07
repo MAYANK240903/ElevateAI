@@ -4,6 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 import { Button } from './ui/button'
 import Image from 'next/image'
+import ImageSlider from './imageSlider';
 
 const HeroSection = () => {
 
@@ -49,19 +50,20 @@ const HeroSection = () => {
             <Button size="lg" className="px-8">Get Started</Button>
           </Link>
           <Link href="https://github.com/MAYANK240903/AI-Career-Coach/">
-            <Button size="lg" className="px-8" variant="outline">Get Started</Button>
+            <Button size="lg" className="px-8" variant="outline">Github rep</Button>
           </Link>
         </div>
 
         <div className="hero-image-wrapper mt-5 md:mt-0">
-          <div ref={imageRef} className="hero-image">
-            <Image src={"/banner3.jpeg"}
+          <div ref={imageRef} className="hero-image" >
+            {/* <Image src={"/banner3.jpeg"}
             width={1280}
             height={720}
             alt='Banner preview'
             className='rounded-lg shadow-2xl border mx-auto'
             priority
-            />
+            /> */}
+            <ImageSlider />
           </div>
         </div>
     </div>  
