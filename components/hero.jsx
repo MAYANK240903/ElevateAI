@@ -37,7 +37,7 @@ const HeroSection = () => {
     <div className='space-y-6 text-center'>
         <div className='space-y-6 mx-auto'>
             <h1 className='gradient-title text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl'>
-            Your AI Career Coach for
+            Guiding Career for
             <br />
             Professional Success
             </h1>
@@ -48,9 +48,6 @@ const HeroSection = () => {
         <div className='flex justify-center space-x-4'>
           <Link href="/dashboard">
             <Button size="lg" className="px-8">Get Started</Button>
-          </Link>
-          <Link href="https://github.com/MAYANK240903/AI-Career-Coach/">
-            <Button size="lg" className="px-8" variant="outline">Github rep</Button>
           </Link>
         </div>
 
