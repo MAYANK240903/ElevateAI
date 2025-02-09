@@ -1,5 +1,7 @@
+"use client";
+
 import React, { Suspense } from 'react'
-import { BarLoader } from 'react-spinners'
+import { BarLoader } from 'react-spinners';
 
 const Layout = ({children}) => {
   return (
