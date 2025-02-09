@@ -99,9 +99,14 @@ model IndustryInsight {
 }
 
 
+<<<<<<< HEAD
 
 enum DemandLevel{
   HIGH
+=======
+enum DemandLevel{
+  High
+>>>>>>> 90ea9fa0520b86dc26eff9f9996cfa89ba6a659b
   MEDIUM
   LOW
 }
@@ -109,7 +114,11 @@ enum MarketOutlook{
   POSITIVE
   NEUTRAL
   NEGATIVE
+<<<<<<< HEAD
 }
 
 
 
+=======
+}
+>>>>>>> 90ea9fa0520b86dc26eff9f9996cfa89ba6a659b
